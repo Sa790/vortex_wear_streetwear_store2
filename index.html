@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VORTEX WEAR — Bold Streetwear & Heavyweight Graphic Tees (Sri Lanka)</title>
+
+    <!-- Google Fonts: Syne, Space Grotesk, and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Custom Configuration for Theme Colors & Typography -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#09090b',
+                        zincCard: '#18181b',
+                        crimson: '#ff2a54',
+                        amberAccent: '#f59e0b',
+                    },
+                    fontFamily: {
+                        display: ['Syne', 'Space Grotesk', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        crimsonGlow: '0 0 30px -5px rgba(255, 42, 84, 0.35)',
+                        amberGlow: '0 0 25px -5px rgba(245, 158, 11, 0.3)',
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-obsidian text-white font-sans antialiased selection:bg-crimson selection:text-white overflow-x-hidden">
+
+    <!-- =========================================================
+         TOP ANNOUNCEMENT BAR
+         ========================================================= -->
+    <div class="bg-crimson text-white text-xs sm:text-sm font-heading font-semibold tracking-wider uppercase py-2 px-4 text-center">
+        <span>FREE ISLANDWIDE DELIVERY ON ORDERS OVER RS. 7,500</span>
+        <span class="mx-2 opacity-60">•</span>
+        <span>CASH ON DELIVERY AVAILABLE</span>
+    </div>
+
+    <!-- =========================================================
+         STICKY NAVIGATION BAR
+         ========================================================= -->
+    <header class="sticky top-0 z-40 bg-obsidian/90 backdrop-blur-md border-b border-zinc-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-2.5 group focus:outline-none">
+                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-crimson to-amberAccent flex items-center justify-center shadow-crimsonGlow group-hover:scale-105 transition-transform">
+                        <!-- Custom Vortex SVG Mark -->
+                        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 5l8 14 8-14" />
+                            <path d="M8.5 5L12 11l3.5-6" />
+                        </svg>
+                    </div>
+                    <div class="leading-none">
+                        <span class="font-display text-lg sm:text-xl font-extrabold tracking-tight text-white block">
+                            VORTEX <span class="text-crimson">WEAR</span>
+                        </span>
+                        <span class="text-[10px] font-heading tracking-[0.25em] text-zinc-400 uppercase block mt-0.5">
+                            Colombo Streetwear
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-sm font-heading font-medium text-zinc-300 hover:text-white transition-colors">Home</a>
+                    <a href="#shop" class="text-sm font-heading font-medium text-zinc-300 hover:text-white transition-colors">Shop</a>
+                    <button
+                        type="button"
+                        onclick="openSizeGuide()"
+                        class="text-sm font-heading font-medium text-zinc-300 hover:text-crimson transition-colors cursor-pointer"
+                    >
+                        Size Guide
+                    </button>
+                    <a href="#about" class="text-sm font-heading font-medium text-zinc-300 hover:text-white transition-colors">About</a>
+                </nav>
+
+                <!-- Right Action Buttons: Cart + Mobile Menu -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Interactive Cart Button with Live Badge -->
+                    <button
+                        type="button"
+                        onclick="openCart()"
+                        aria-label="Open Shopping Cart"
+                        class="relative inline-flex items-center gap-2 bg-zincCard hover:bg-zinc-800 border border-zinc-700/80 hover:border-crimson/60 text-white px-3.5 py-2.5 rounded-xl transition-all active:scale-95"
+                    >
+                        <svg class="w-5 h-5 text-zinc-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span class="hidden sm:inline text-sm font-heading font-semibold">Cart</span>
+                        <span
+                            id="cart-badge"
+                            class="inline-flex items-center justify-center min-w-[22px] h-[22px] px-1.5 text-xs font-bold bg-crimson text-white rounded-full transition-transform"
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button
+                        type="button"
+                        id="mobile-menu-btn"
+                        onclick="toggleMobileMenu()"
+                        aria-label="Toggle Menu"
+                        class="md:hidden p-2.5 rounded-xl bg-zincCard border border-zinc-800 text-zinc-300 hover:text-white"
+                    >
+                        <svg id="menu-icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zincCard border-t border-zinc-800 px-4 pt-3 pb-5 space-y-2">
+            <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-heading font-medium text-zinc-200 hover:bg-zinc-800">Home</a>
+            <a href="#shop" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-heading font-medium text-zinc-200 hover:bg-zinc-800">Shop Drops</a>
+            <button
+                type="button"
+                onclick="toggleMobileMenu(); openSizeGuide();"
+                class="w-full text-left block px-3 py-2.5 rounded-lg text-base font-heading font-medium text-zinc-200 hover:bg-zinc-800"
+            >
+                Size Guide
+            </button>
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-heading font-medium text-zinc-200 hover:bg-zinc-800">About Vortex</a>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         HERO SECTION
+         ========================================================= -->
+    <section id="home" class="relative overflow-hidden pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28">
+        <!-- Ambient Background Gradients -->
+        <div class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 bg-crimson/20 rounded-full blur-3xl"></div>
+        <div class="pointer-events-none absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-amberAccent/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+
+                <!-- Left Copy Column -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zincCard border border-zinc-800 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-crimson animate-pulse"></span>
+                        <span class="text-xs font-heading font-semibold tracking-widest uppercase text-zinc-300">
+                            Season 04 Drop • Sri Lanka
+                        </span>
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] text-white">
+                        BOLD GRAPHICS.<br />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-crimson via-rose-500 to-amberAccent">
+                            HEAVYWEIGHT
+                        </span>
+                        COTTON.
+                    </h1>
+
+                    <p class="mt-6 text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Engineered for everyday street dominance. Premium <strong class="text-white">240 GSM combed cotton</strong> oversized &amp; regular fit graphic drops with high-density screen prints built to last.
+                    </p>
+
+                    <!-- Hero CTA Buttons -->
+                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a
+                            href="#shop"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-crimson hover:bg-rose-600 text-white font-heading font-bold text-base px-8 py-4 rounded-xl shadow-crimsonGlow transition-all active:scale-95"
+                        >
+                            <span>Shop Now</span>
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+
+                        <button
+                            type="button"
+                            onclick="openSizeGuide()"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-zincCard hover:bg-zinc-800 border border-zinc-700 text-zinc-200 font-heading font-semibold text-base px-7 py-4 rounded-xl transition-all active:scale-95"
+                        >
+                            <svg class="w-5 h-5 text-amberAccent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M3 12h18M3 18h18" />
+                            </svg>
+                            <span>View Size Guide</span>
+                        </button>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mt-10 pt-8 border-t border-zinc-800/80 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+                        <div>
+                            <p class="font-display text-2xl sm:text-3xl font-bold text-white">240</p>
+                            <p class="text-xs text-zinc-400 uppercase tracking-wider mt-0.5">GSM Cotton</p>
+                        </div>
+                        <div>
+                            <p class="font-display text-2xl sm:text-3xl font-bold text-amberAccent">2-4</p>
+                            <p class="text-xs text-zinc-400 uppercase tracking-wider mt-0.5">Days Delivery</p>
+                        </div>
+                        <div>
+                            <p class="font-display text-2xl sm:text-3xl font-bold text-crimson">100%</p>
+                            <p class="text-xs text-zinc-400 uppercase tracking-wider mt-0.5">Pre-Shrunk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Featured Graphic T-Shirt Display -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md bg-gradient-to-b from-zincCard to-obsidian border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                        <!-- Top Floating Tag -->
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 rounded-full bg-crimson/15 border border-crimson/40 text-crimson text-xs font-heading font-bold tracking-wider uppercase">
+                                Featured Drop
+                            </span>
+                            <span class="text-xs font-heading text-zinc-400">240 GSM • Oversized</span>
+                        </div>
+
+                        <!-- Stylized Featured Graphic Tee SVG -->
+                        <div class="relative py-2 flex items-center justify-center">
+                            <svg viewBox="0 0 320 340" class="w-full h-auto drop-shadow-[0_20px_35px_rgba(255,42,84,0.22)]" role="img" aria-label="Featured Vortex Wear Graphic T-Shirt">
+                                <defs>
+                                    <linearGradient id="heroShirtFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#202025" />
+                                        <stop offset="50%" stop-color="#141418" />
+                                        <stop offset="100%" stop-color="#0c0c0f" />
+                                    </linearGradient>
+                                    <linearGradient id="heroNeon" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#ff2a54" />
+                                        <stop offset="100%" stop-color="#f59e0b" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Oversized Drop-Shoulder Tee Silhouette -->
+                                <path
+                                    d="M112 24 C132 42, 188 42, 208 24 L256 44 L304 114 L258 144 L236 112 L236 312 L84 312 L84 112 L62 144 L16 114 L64 44 Z"
+                                    fill="url(#heroShirtFill)"
+                                    stroke="#3f3f46"
+                                    stroke-width="2.5"
+                                    stroke-linejoin="round"
+                                />
+                                <!-- Ribbed Collar -->
+                                <path
+                                    d="M112 24 C132 52, 188 52, 208 24 C188 38, 132 38, 112 24 Z"
+                                    fill="#09090b"
+                                    stroke="#52525b"
+                                    stroke-width="1.5"
+                                />
+                                <!-- Subtle Fabric Fold Highlights -->
+                                <path d="M96 120 L92 295" stroke="#27272a" stroke-width="2" stroke-linecap="round" />
+                                <path d="M224 120 L228 295" stroke="#27272a" stroke-width="2" stroke-linecap="round" />
+                                <!-- Chest Artwork: Cyber Samurai / Vortex Emblem -->
+                                <g transform="translate(105, 86)">
+                                    <rect x="0" y="0" width="110" height="142" rx="10" fill="#09090b" fill-opacity="0.7" stroke="url(#heroNeon)" stroke-width="1.8" />
+                                    <!-- Glowing Sun Disc -->
+                                    <circle cx="55" cy="58" r="32" fill="url(#heroNeon)" fill-opacity="0.18" stroke="url(#heroNeon)" stroke-width="2" />
+                                    <!-- Stylized Geometric Oni / Samurai Visor -->
+                                    <polygon points="55,22 82,56 72,88 38,88 28,56" fill="#18181b" stroke="#ffffff" stroke-width="2" />
+                                    <!-- Horns -->
+                                    <path d="M35 38 L20 18 L44 30" fill="#f59e0b" />
+                                    <path d="M75 38 L90 18 L66 30" fill="#f59e0b" />
+                                    <!-- Glowing Crimson Eyes -->
+                                    <polygon points="39,55 51,60 41,64" fill="#ff2a54" />
+                                    <polygon points="71,55 59,60 69,64" fill="#ff2a54" />
+                                    <!-- Fang Mask Lines -->
+                                    <path d="M43 76 L50 72 L55 77 L60 72 L67 76" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+                                    <!-- Typography inside Graphic -->
+                                    <text x="55" y="114" text-anchor="middle" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="11" letter-spacing="3">VORTEX</text>
+                                    <text x="55" y="128" text-anchor="middle" fill="#ff2a54" font-family="Inter, sans-serif" font-weight="700" font-size="8" letter-spacing="2">EDITION // 04</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- Bottom Mini Info Bar -->
+                        <div class="mt-3 pt-4 border-t border-zinc-800 flex items-center justify-between">
+                            <div>
+                                <p class="font-heading font-bold text-white text-base">Cyber Samurai Skull</p>
+                                <p class="text-xs text-zinc-400">Limited Drop • Jet Black</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-heading font-bold text-amberAccent text-lg">Rs. 4,500</p>
+                                <a href="#shop" class="text-xs text-crimson hover:underline font-semibold">Grab Yours →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         TRUST STRIP (3 KEY HIGHLIGHTS)
+         ========================================================= -->
+    <section class="border-y border-zinc-800/80 bg-zincCard/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Highlight 1 -->
+                <div class="flex items-center gap-4 p-4 rounded-2xl bg-obsidian/60 border border-zinc-800/80">
+                    <div class="w-12 h-12 rounded-xl bg-crimson/15 border border-crimson/30 flex items-center justify-center shrink-0 text-crimson">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-white text-sm sm:text-base">240 GSM Heavyweight Cotton</h3>
+                        <p class="text-xs sm:text-sm text-zinc-400 mt-0.5">Thick, breathable, structured drape.</p>
+                    </div>
+                </div>
+
+                <!-- Highlight 2 -->
+                <div class="flex items-center gap-4 p-4 rounded-2xl bg-obsidian/60 border border-zinc-800/80">
+                    <div class="w-12 h-12 rounded-xl bg-amberAccent/15 border border-amberAccent/30 flex items-center justify-center shrink-0 text-amberAccent">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-white text-sm sm:text-base">Islandwide Cash on Delivery</h3>
+                        <p class="text-xs sm:text-sm text-zinc-400 mt-0.5">Pay at your doorstep anywhere in Sri Lanka.</p>
+                    </div>
+                </div>
+
+                <!-- Highlight 3 -->
+                <div class="flex items-center gap-4 p-4 rounded-2xl bg-obsidian/60 border border-zinc-800/80">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0 text-emerald-400">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-white text-sm sm:text-base">7-Day Easy Size Exchange</h3>
+                        <p class="text-xs sm:text-sm text-zinc-400 mt-0.5">Hassle-free exchanges if the fit isn't right.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         SHOP / PRODUCT GRID WITH CATEGORY FILTERS
+         ========================================================= -->
+    <section id="shop" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header + Size Guide Shortcut -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <p class="text-xs font-heading font-bold tracking-[0.25em] text-crimson uppercase mb-2">
+                        Latest Releases
+                    </p>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+                        SHOP THE DROP
+                    </h2>
+                </div>
+
+                <button
+                    type="button"
+                    onclick="openSizeGuide()"
+                    class="self-start md:self-auto inline-flex items-center gap-2 text-sm font-heading font-semibold text-amberAccent hover:text-amber-300 bg-zincCard border border-zinc-800 hover:border-amberAccent/50 px-4 py-2.5 rounded-xl transition-all"
+                >
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    <span>Oversized Size Chart</span>
+                </button>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div id="filter-tabs" class="flex flex-wrap items-center gap-2.5 mb-10">
+                <button
+                    type="button"
+                    data-category="All"
+                    onclick="setCategory('All')"
+                    class="filter-btn px-5 py-2.5 rounded-xl text-sm font-heading font-semibold transition-all bg-crimson text-white shadow-crimsonGlow"
+                >
+                    All
+                </button>
+                <button
+                    type="button"
+                    data-category="Oversized"
+                    onclick="setCategory('Oversized')"
+                    class="filter-btn px-5 py-2.5 rounded-xl text-sm font-heading font-semibold transition-all bg-zincCard text-zinc-300 border border-zinc-800 hover:border-zinc-600"
+                >
+                    Oversized
+                </button>
+                <button
+                    type="button"
+                    data-category="Graphic Tees"
+                    onclick="setCategory('Graphic Tees')"
+                    class="filter-btn px-5 py-2.5 rounded-xl text-sm font-heading font-semibold transition-all bg-zincCard text-zinc-300 border border-zinc-800 hover:border-zinc-600"
+                >
+                    Graphic Tees
+                </button>
+                <button
+                    type="button"
+                    data-category="Limited Drop"
+                    onclick="setCategory('Limited Drop')"
+                    class="filter-btn px-5 py-2.5 rounded-xl text-sm font-heading font-semibold transition-all bg-zincCard text-zinc-300 border border-zinc-800 hover:border-zinc-600"
+                >
+                    Limited Drop
+                </button>
+            </div>
+
+            <!-- Product Cards Grid (Populated via JS) -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Products render dynamically here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         ABOUT / STREETWEAR ETHOS SECTION
+         ========================================================= -->
+    <section id="about" class="py-16 sm:py-24 border-t border-zinc-800/80 bg-zincCard/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-7">
+                    <p class="text-xs font-heading font-bold tracking-[0.25em] text-amberAccent uppercase mb-2">
+                        Born in Sri Lanka
+                    </p>
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                        DESIGNED FOR THOSE WHO DON'T BLEND IN.
+                    </h2>
+                    <p class="mt-5 text-zinc-400 leading-relaxed">
+                        <strong class="text-white">VORTEX WEAR</strong> started with one goal: bringing international heavyweight streetwear quality to Sri Lanka without the inflated import price tag. Every tee is cut from custom-knitted 240 GSM combed cotton, bio-washed for ultra-soft comfort, and finished with crack-resistant puff &amp; plastisol graphics.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <span class="px-3.5 py-1.5 rounded-lg bg-obsidian border border-zinc-800 text-xs font-heading text-zinc-300">No-Fade Prints</span>
+                        <span class="px-3.5 py-1.5 rounded-lg bg-obsidian border border-zinc-800 text-xs font-heading text-zinc-300">Thick 1-Inch Ribbed Neck</span>
+                        <span class="px-3.5 py-1.5 rounded-lg bg-obsidian border border-zinc-800 text-xs font-heading text-zinc-300">Drop-Shoulder Street Cut</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-obsidian border border-zinc-800 rounded-3xl p-6 sm:p-8 space-y-5">
+                        <h3 class="font-heading font-bold text-xl text-white">How Ordering Works</h3>
+                        <ol class="space-y-4 text-sm text-zinc-300">
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-crimson text-white font-heading font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                                <span>Pick your favorite graphic tees &amp; select your size (S to XXL).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-crimson text-white font-heading font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                                <span>Open your cart and enter your delivery details &amp; payment method (COD or Bank Transfer).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-crimson text-white font-heading font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+                                <span>Tap <strong class="text-white">Order via WhatsApp</strong> — your complete order is sent instantly to our team for dispatch!</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer class="bg-obsidian border-t border-zinc-800/80 pt-14 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-zinc-800/80">
+                <!-- Brand Info -->
+                <div>
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-crimson to-amberAccent flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M4 5l8 14 8-14" />
+                            </svg>
+                        </div>
+                        <span class="font-display text-lg font-extrabold tracking-tight text-white">
+                            VORTEX <span class="text-crimson">WEAR</span>
+                        </span>
+                    </div>
+                    <p class="text-sm text-zinc-400 leading-relaxed max-w-xs">
+                        Heavyweight 240 GSM streetwear graphic tees crafted in Sri Lanka. Islandwide Cash on Delivery within 2–4 working days.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm text-zinc-400">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#shop" class="hover:text-white transition-colors">Shop Collection</a></li>
+                        <li>
+                            <button type="button" onclick="openSizeGuide()" class="hover:text-white transition-colors">
+                                Oversized Size Guide
+                            </button>
+                        </li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social & Direct Contact -->
+                <div>
+                    <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-white mb-4">Connect With Us</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <a
+                            href="https://wa.me/94770000000"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zincCard border border-zinc-800 hover:border-emerald-500/60 text-sm text-zinc-200 hover:text-emerald-400 transition-all"
+                        >
+                            <span>WhatsApp</span>
+                        </a>
+                        <a
+                            href="#shop"
+                            onclick="showToast('Follow @vortexwear.lk on Instagram!')"
+                            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zincCard border border-zinc-800 hover:border-crimson/60 text-sm text-zinc-200 hover:text-crimson transition-all"
+                        >
+                            <span>Instagram</span>
+                        </a>
+                        <a
+                            href="#shop"
+                            onclick="showToast('Follow @vortexwear.lk on TikTok!')"
+                            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zincCard border border-zinc-800 hover:border-amberAccent/60 text-sm text-zinc-200 hover:text-amberAccent transition-all"
+                        >
+                            <span>TikTok</span>
+                        </a>
+                    </div>
+                    <p class="mt-4 text-xs text-zinc-500">
+                        Colombo, Sri Lanka • Hotline: +94 77 000 0000
+                    </p>
+                </div>
+            </div>
+
+            <!-- Customization Note & Copyright -->
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+                <p>&copy; <span id="year"></span> VORTEX WEAR. All rights reserved.</p>
+                <p class="bg-zincCard border border-zinc-800 px-3 py-1.5 rounded-lg text-zinc-400">
+                    Tip: Edit <code class="text-amberAccent font-mono">STORE_CONFIG</code> in the script to set your own Brand Name &amp; WhatsApp Number.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         INTERACTIVE SIZE GUIDE MODAL
+         ========================================================= -->
+    <div id="size-guide-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="relative w-full max-w-xl bg-zincCard border border-zinc-700 rounded-3xl p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <span class="text-xs font-heading font-bold uppercase tracking-widest text-crimson">Vortex Fit Guide</span>
+                    <h3 class="font-display text-2xl font-extrabold text-white mt-0.5">Oversized Tee Size Chart</h3>
+                </div>
+                <button
+                    type="button"
+                    onclick="closeSizeGuide()"
+                    aria-label="Close Size Guide"
+                    class="p-2 rounded-xl bg-obsidian border border-zinc-800 text-zinc-400 hover:text-white transition-colors"
+                >
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <p class="text-sm text-zinc-400 mb-5">
+                All measurements are in <strong class="text-white">inches</strong>. Our 240 GSM tees feature a relaxed drop-shoulder streetwear silhouette. Order your usual size for an oversized look, or size down for a regular fit.
+            </p>
+
+            <!-- Size Table -->
+            <div class="overflow-x-auto rounded-2xl border border-zinc-800">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-obsidian text-zinc-300 font-heading uppercase text-xs tracking-wider">
+                            <th class="py-3.5 px-4">Size</th>
+                            <th class="py-3.5 px-4">Chest (in)</th>
+                            <th class="py-3.5 px-4">Length (in)</th>
+                            <th class="py-3.5 px-4">Shoulder (in)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-800 text-zinc-200">
+                        <tr class="hover:bg-zinc-800/50">
+                            <td class="py-3 px-4 font-heading font-bold text-crimson">S</td>
+                            <td class="py-3 px-4">42"</td>
+                            <td class="py-3 px-4">27.5"</td>
+                            <td class="py-3 px-4">20.5"</td>
+                        </tr>
+                        <tr class="hover:bg-zinc-800/50">
+                            <td class="py-3 px-4 font-heading font-bold text-crimson">M</td>
+                            <td class="py-3 px-4">44"</td>
+                            <td class="py-3 px-4">28.5"</td>
+                            <td class="py-3 px-4">21.5"</td>
+                        </tr>
+                        <tr class="hover:bg-zinc-800/50">
+                            <td class="py-3 px-4 font-heading font-bold text-crimson">L</td>
+                            <td class="py-3 px-4">46"</td>
+                            <td class="py-3 px-4">29.5"</td>
+                            <td class="py-3 px-4">22.5"</td>
+                        </tr>
+                        <tr class="hover:bg-zinc-800/50">
+                            <td class="py-3 px-4 font-heading font-bold text-crimson">XL</td>
+                            <td class="py-3 px-4">48"</td>
+                            <td class="py-3 px-4">30.5"</td>
+                            <td class="py-3 px-4">23.5"</td>
+                        </tr>
+                        <tr class="hover:bg-zinc-800/50">
+                            <td class="py-3 px-4 font-heading font-bold text-crimson">XXL</td>
+                            <td class="py-3 px-4">50"</td>
+                            <td class="py-3 px-4">31.5"</td>
+                            <td class="py-3 px-4">24.5"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-5 p-4 rounded-xl bg-obsidian border border-zinc-800 text-xs text-zinc-400 flex items-center gap-3">
+                <span class="text-amberAccent font-bold text-base">ⓘ</span>
+                <span>Allow +/- 0.5 inch tolerance due to manual measurement &amp; bio-wash treatment. Free 7-day size exchange included!</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         SLIDE-OVER SHOPPING CART & WHATSAPP CHECKOUT DRAWER
+         ========================================================= -->
+    <div id="cart-overlay" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div onclick="closeCart()" class="absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity"></div>
+
+        <!-- Drawer Panel -->
+        <aside class="absolute right-0 top-0 h-full w-full max-w-md bg-obsidian border-l border-zinc-800 shadow-2xl flex flex-col">
+            <!-- Cart Header -->
+            <div class="flex items-center justify-between px-5 py-4 border-b border-zinc-800 bg-zincCard">
+                <div class="flex items-center gap-2.5">
+                    <h3 class="font-display text-xl font-extrabold text-white">YOUR CART</h3>
+                    <span id="drawer-cart-count" class="px-2 py-0.5 text-xs font-bold bg-crimson text-white rounded-full">0</span>
+                </div>
+                <button
+                    type="button"
+                    onclick="closeCart()"
+                    aria-label="Close Cart"
+                    class="p-2 rounded-xl bg-obsidian border border-zinc-800 text-zinc-400 hover:text-white"
+                >
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Free Delivery Progress Bar -->
+            <div id="free-delivery-banner" class="px-5 py-3 bg-zincCard/50 border-b border-zinc-800/80 text-xs">
+                <p id="free-delivery-text" class="text-zinc-300 font-medium mb-1.5">
+                    Add Rs. 7,500 more for FREE Islandwide Delivery!
+                </p>
+                <div class="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden">
+                    <div id="free-delivery-bar" class="h-full bg-gradient-to-r from-crimson to-amberAccent rounded-full transition-all duration-300" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Scrollable Cart Items + Checkout Form -->
+            <div class="flex-1 overflow-y-auto px-5 py-4 space-y-5">
+                <!-- Cart Items Container -->
+                <div id="cart-items-container" class="space-y-3">
+                    <!-- Populated via JS -->
+                </div>
+
+                <!-- Checkout Customer Details Form (Shown when cart has items) -->
+                <div id="checkout-form-section" class="hidden pt-4 border-t border-zinc-800 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-amberAccent">
+                            Delivery &amp; Payment Details
+                        </h4>
+                    </div>
+
+                    <!-- Inline Validation Error Box -->
+                    <div id="form-error" class="hidden p-3 rounded-xl bg-crimson/15 border border-crimson/40 text-crimson text-xs font-medium"></div>
+
+                    <div class="space-y-3">
+                        <div>
+                            <label for="cust-name" class="block text-xs font-medium text-zinc-400 mb-1">Full Name *</label>
+                            <input
+                                type="text"
+                                id="cust-name"
+                                placeholder="e.g. Kasun Perera"
+                                class="w-full px-3.5 py-2.5 rounded-xl bg-zincCard border border-zinc-700 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-crimson"
+                            />
+                        </div>
+
+                        <div>
+                            <label for="cust-phone" class="block text-xs font-medium text-zinc-400 mb-1">Phone Number (WhatsApp) *</label>
+                            <input
+                                type="tel"
+                                id="cust-phone"
+                                placeholder="e.g. 077 123 4567"
+                                class="w-full px-3.5 py-2.5 rounded-xl bg-zincCard border border-zinc-700 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-crimson"
+                            />
+                        </div>
+
+                        <div>
+                            <label for="cust-address" class="block text-xs font-medium text-zinc-400 mb-1">Full Delivery Address &amp; City *</label>
+                            <textarea
+                                id="cust-address"
+                                rows="2"
+                                placeholder="e.g. No. 45, Galle Road, Dehiwala, Colombo"
+                                class="w-full px-3.5 py-2.5 rounded-xl bg-zincCard border border-zinc-700 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-crimson resize-none"
+                            ></textarea>
+                        </div>
+
+                        <div>
+                            <span class="block text-xs font-medium text-zinc-400 mb-1.5">Payment Method *</span>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="payment-method" value="Cash on Delivery (COD)" checked class="peer sr-only" />
+                                    <div class="p-2.5 rounded-xl bg-zincCard border border-zinc-700 peer-checked:border-crimson peer-checked:bg-crimson/10 text-center transition-all">
+                                        <span class="block text-xs font-heading font-bold text-white">Cash on Delivery</span>
+                                        <span class="block text-[10px] text-zinc-400 mt-0.5">Pay at doorstep</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="payment-method" value="Bank Transfer" class="peer sr-only" />
+                                    <div class="p-2.5 rounded-xl bg-zincCard border border-zinc-700 peer-checked:border-crimson peer-checked:bg-crimson/10 text-center transition-all">
+                                        <span class="block text-xs font-heading font-bold text-white">Bank Transfer</span>
+                                        <span class="block text-[10px] text-zinc-400 mt-0.5">Commercial / Sampath</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Footer: Totals & WhatsApp Order Button -->
+            <div id="cart-footer" class="hidden px-5 py-4 bg-zincCard border-t border-zinc-800 space-y-3">
+                <div class="space-y-1.5 text-sm">
+                    <div class="flex justify-between text-zinc-400">
+                        <span>Subtotal</span>
+                        <span id="cart-subtotal" class="font-medium text-white">Rs. 0</span>
+                    </div>
+                    <div class="flex justify-between text-zinc-400">
+                        <span>Islandwide Delivery</span>
+                        <span id="cart-delivery" class="font-medium text-white">Rs. 350</span>
+                    </div>
+                    <div class="flex justify-between text-base font-heading font-bold text-white pt-2 border-t border-zinc-800">
+                        <span>Total (LKR)</span>
+                        <span id="cart-total" class="text-amberAccent text-lg">Rs. 0</span>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    onclick="submitWhatsAppOrder()"
+                    class="w-full flex items-center justify-center gap-2.5 bg-emerald-500 hover:bg-emerald-600 text-obsidian font-heading font-bold text-sm sm:text-base py-3.5 px-5 rounded-xl transition-all active:scale-95 shadow-lg"
+                >
+                    <!-- WhatsApp Icon SVG -->
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.766.469 3.484 1.344 5l-1.406 5.156 5.281-1.391c1.469.797 3.109 1.219 4.75 1.219 5.516 0 9.969-4.453 9.969-9.969S17.547 2 12.031 2zm5.813 14.125c-.25.703-1.453 1.344-2.016 1.422-.516.078-1.188.109-1.922-.125-.453-.141-1.031-.344-1.766-.656-3.094-1.344-5.109-4.469-5.266-4.672-.156-.203-1.266-1.688-1.266-3.219s.797-2.281 1.078-2.594c.281-.313.625-.391.828-.391.203 0 .422.016.609.016.188 0 .453-.078.703.531.266.625.891 2.188.969 2.344.078.156.125.344.016.547-.109.203-.156.344-.313.516-.156.188-.328.406-.469.547-.156.156-.328.328-.141.641.188.313.828 1.359 1.766 2.203 1.219 1.094 2.25 1.438 2.563 1.594.313.156.5.125.688-.078.188-.203.781-.922.984-1.234.203-.313.422-.266.703-.156.281.109 1.797.844 2.109 1 .313.156.516.234.594.359.078.125.078.734-.172 1.438z" />
+                    </svg>
+                    <span>Order via WhatsApp</span>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- =========================================================
+         ORDER CONFIRMATION PREVIEW MODAL
+         ========================================================= -->
+    <div id="order-preview-modal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+        <div class="w-full max-w-lg bg-zincCard border border-zinc-700 rounded-3xl p-6 sm:p-7 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-display text-lg font-extrabold text-white">Order Ready for WhatsApp!</h3>
+                        <p class="text-xs text-zinc-400">Confirm &amp; send your message below.</p>
+                    </div>
+                </div>
+                <button
+                    type="button"
+                    onclick="closeOrderPreview()"
+                    aria-label="Close Preview"
+                    class="p-2 rounded-xl bg-obsidian border border-zinc-800 text-zinc-400 hover:text-white"
+                >
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Formatted Order Message Preview -->
+            <pre id="order-message-preview" class="bg-obsidian border border-zinc-800 rounded-2xl p-4 text-xs sm:text-sm text-zinc-200 font-mono whitespace-pre-wrap leading-relaxed max-h-60 overflow-y-auto"></pre>
+
+            <!-- Action Buttons -->
+            <div class="mt-5 flex flex-col sm:flex-row gap-3">
+                <a
+                    id="whatsapp-direct-link"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-obsidian font-heading font-bold text-sm py-3.5 px-5 rounded-xl transition-all"
+                >
+                    <span>Open WhatsApp Chat</span>
+                </a>
+                <button
+                    type="button"
+                    onclick="copyOrderMessage()"
+                    class="inline-flex items-center justify-center gap-2 bg-obsidian hover:bg-zinc-800 border border-zinc-700 text-white font-heading font-semibold text-sm py-3.5 px-5 rounded-xl transition-all"
+                >
+                    <span>Copy Order</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         TOAST NOTIFICATION
+         ========================================================= -->
+    <div
+        id="toast"
+        class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[70] pointer-events-none opacity-0 translate-y-4 transition-all duration-300"
+    >
+        <div class="flex items-center gap-2.5 bg-zincCard border border-crimson/60 text-white px-5 py-3 rounded-2xl shadow-crimsonGlow text-sm font-heading font-semibold">
+            <span class="w-2.5 h-2.5 rounded-full bg-crimson"></span>
+            <span id="toast-message">Added to cart</span>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         APPLICATION JAVASCRIPT
+         ========================================================= -->
+    <script>
+        /**
+         * STORE CONFIGURATION
+         * Easily customize your brand name, WhatsApp number (with Sri Lanka country code 94),
+         * delivery fee, and free delivery threshold here.
+         */
+        const STORE_CONFIG = {
+            brandName: 'VORTEX WEAR',
+            whatsappNumber: '94770000000', // Replace with your actual Sri Lankan WhatsApp number (e.g. 94771234567)
+            deliveryFee: 350,
+            freeDeliveryThreshold: 7500,
+            sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+        };
+
+        /**
+         * PRODUCT CATALOG
+         * 6 unique Sri Lankan streetwear graphic tees with custom inline SVG chest artwork.
+         */
+        const PRODUCTS = [
+            {
+                id: 'mecha-lion',
+                name: 'Mecha Lion Tee',
+                category: 'Oversized',
+                price: 4200,
+                badge: 'BESTSELLER',
+                badgeStyle: 'bg-amberAccent/20 text-amberAccent border-amberAccent/40',
+                colorName: 'Jet Black',
+                colorHex: '#18181b',
+                shirtFill: '#18181c',
+                artworkType: 'mechaLion',
+            },
+            {
+                id: 'cyber-samurai',
+                name: 'Cyber Samurai Skull',
+                category: 'Limited Drop',
+                price: 4500,
+                badge: 'LIMITED',
+                badgeStyle: 'bg-crimson/20 text-crimson border-crimson/40',
+                colorName: 'Pitch Black',
+                colorHex: '#0f0f12',
+                shirtFill: '#141418',
+                artworkType: 'cyberSamurai',
+            },
+            {
+                id: 'midnight-jdm',
+                name: 'Midnight JDM Drift',
+                category: 'Graphic Tees',
+                price: 3850,
+                badge: 'NEW DROP',
+                badgeStyle: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40',
+                colorName: 'Charcoal Wash',
+                colorHex: '#27272a',
+                shirtFill: '#222227',
+                artworkType: 'jdmDrift',
+            },
+            {
+                id: 'dark-sunset',
+                name: 'Dark Sunset Horizon',
+                category: 'Oversized',
+                price: 3900,
+                badge: 'TRENDING',
+                badgeStyle: 'bg-amberAccent/20 text-amberAccent border-amberAccent/40',
+                colorName: 'Obsidian',
+                colorHex: '#121215',
+                shirtFill: '#17171c',
+                artworkType: 'darkSunset',
+            },
+            {
+                id: 'neon-kanji',
+                name: 'Neon Kanji Street',
+                category: 'Graphic Tees',
+                price: 3600,
+                badge: 'NEW DROP',
+                badgeStyle: 'bg-crimson/20 text-crimson border-crimson/40',
+                colorName: 'Washed Ash',
+                colorHex: '#2e2e34',
+                shirtFill: '#24242a',
+                artworkType: 'neonKanji',
+            },
+            {
+                id: 'shadow-core',
+                name: 'Shadow Core Essential',
+                category: 'Oversized',
+                price: 3200,
+                badge: 'ESSENTIAL',
+                badgeStyle: 'bg-zinc-700/60 text-zinc-200 border-zinc-600',
+                colorName: 'Matte Onyx',
+                colorHex: '#151518',
+                shirtFill: '#16161a',
+                artworkType: 'shadowCore',
+            },
+        ];
+
+        // Application State
+        let activeCategory = 'All';
+        let selectedSizes = {}; // Tracks selected size per product ID
+        let cart = []; // Array of { id, name, price, size, colorName, qty }
+        let lastFormattedMessage = '';
+        let toastTimeout = null;
+
+        // Initialize default size ('L') for each product
+        PRODUCTS.forEach((p) => {
+            selectedSizes[p.id] = 'L';
+        });
+
+        /**
+         * Formats a numeric amount into Sri Lankan Rupees (e.g., Rs. 4,200)
+         */
+        function formatLKR(amount) {
+            return 'Rs. ' + Number(amount).toLocaleString('en-LK');
+        }
+
+        /**
+         * Generates custom inline SVG T-shirt mockups with distinct stylized graphic artwork
+         * so there are zero broken external images.
+         */
+        function getTshirtSVG(product) {
+            let chestArtwork = '';
+
+            switch (product.artworkType) {
+                case 'mechaLion':
+                    chestArtwork = `
+                        <g transform="translate(88, 78)">
+                            <circle cx="42" cy="46" r="34" fill="#ff2a54" fill-opacity="0.14" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="4 3" />
+                            <!-- Geometric Cyber Lion Mane & Head -->
+                            <polygon points="42,10 66,24 72,50 58,74 26,74 12,50 18,24" fill="#09090b" stroke="#f59e0b" stroke-width="2" />
+                            <polygon points="42,20 58,34 52,62 32,62 26,34" fill="#18181b" stroke="#ffffff" stroke-width="1.6" />
+                            <!-- Glowing Eyes -->
+                            <polygon points="31,40 39,43 32,46" fill="#ff2a54" />
+                            <polygon points="53,40 45,43 52,46" fill="#ff2a54" />
+                            <!-- Nose & Cyber Jaw -->
+                            <polygon points="39,50 45,50 42,55" fill="#f59e0b" />
+                            <path d="M34 62 L42 66 L50 62" stroke="#ff2a54" stroke-width="2" fill="none" />
+                            <text x="42" y="92" text-anchor="middle" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="8" letter-spacing="2.5">MECHA LION</text>
+                        </g>
+                    `;
+                    break;
+
+                case 'cyberSamurai':
+                    chestArtwork = `
+                        <g transform="translate(88, 76)">
+                            <rect x="4" y="4" width="76" height="92" rx="6" fill="#09090b" stroke="#ff2a54" stroke-width="1.6" />
+                            <circle cx="42" cy="42" r="24" fill="#ff2a54" fill-opacity="0.2" />
+                            <!-- Samurai Helmet & Skull -->
+                            <path d="M22 36 L42 14 L62 36 L56 64 L28 64 Z" fill="#18181b" stroke="#ffffff" stroke-width="1.8" />
+                            <path d="M24 28 L12 14 L32 22" fill="#f59e0b" />
+                            <path d="M60 28 L72 14 L52 22" fill="#f59e0b" />
+                            <circle cx="34" cy="42" r="4" fill="#ff2a54" />
+                            <circle cx="50" cy="42" r="4" fill="#ff2a54" />
+                            <path d="M34 56 H50 M38 52 V60 M42 52 V60 M46 52 V60" stroke="#ffffff" stroke-width="1.5" />
+                            <text x="42" y="84" text-anchor="middle" fill="#ff2a54" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="7.5" letter-spacing="2">CYBER ONI</text>
+                        </g>
+                    `;
+                    break;
+
+                case 'jdmDrift':
+                    chestArtwork = `
+                        <g transform="translate(86, 80)">
+                            <!-- Japanese Sun & Speed Frame -->
+                            <rect x="2" y="6" width="84" height="82" rx="4" fill="#09090b" stroke="#52525b" stroke-width="1.4" />
+                            <circle cx="56" cy="34" r="18" fill="#ff2a54" />
+                            <!-- Stylized JDM Coupe Silhouette -->
+                            <path d="M12 58 L24 44 L50 42 L68 52 L78 55 L78 64 L10 64 Z" fill="#ffffff" />
+                            <path d="M28 46 L48 45 L58 52 L24 52 Z" fill="#18181b" />
+                            <circle cx="24" cy="64" r="6" fill="#09090b" stroke="#f59e0b" stroke-width="2" />
+                            <circle cx="64" cy="64" r="6" fill="#09090b" stroke="#f59e0b" stroke-width="2" />
+                            <!-- Drift Speed Lines -->
+                            <line x1="8" y1="74" x2="78" y2="74" stroke="#ff2a54" stroke-width="2" />
+                            <text x="44" y="24" text-anchor="middle" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="8" letter-spacing="2">TOKYO DRIFT</text>
+                        </g>
+                    `;
+                    break;
+
+                case 'darkSunset':
+                    chestArtwork = `
+                        <g transform="translate(88, 78)">
+                            <rect x="4" y="4" width="76" height="88" rx="8" fill="#09090b" stroke="#f59e0b" stroke-width="1.5" />
+                            <!-- Synthwave Sun with Horizontal Cuts -->
+                            <circle cx="42" cy="40" r="24" fill="#f59e0b" />
+                            <rect x="16" y="42" width="52" height="3" fill="#09090b" />
+                            <rect x="16" y="49" width="52" height="4" fill="#09090b" />
+                            <rect x="16" y="56" width="52" height="5" fill="#09090b" />
+                            <!-- Mountain Horizon Silhouette -->
+                            <polygon points="8,68 28,48 46,64 60,50 76,68" fill="#ff2a54" />
+                            <text x="42" y="82" text-anchor="middle" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="7.5" letter-spacing="2">HORIZON 88</text>
+                        </g>
+                    `;
+                    break;
+
+                case 'neonKanji':
+                    chestArtwork = `
+                        <g transform="translate(88, 76)">
+                            <rect x="14" y="4" width="56" height="92" rx="4" fill="#09090b" stroke="#ff2a54" stroke-width="1.8" />
+                            <!-- Bold Streetwear Geometric Bars & Emblem -->
+                            <rect x="22" y="14" width="40" height="8" fill="#ff2a54" />
+                            <path d="M28 32 H56 M42 26 V54 M28 42 H56 M32 54 L24 66 M52 54 L60 66" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+                            <rect x="22" y="72" width="40" height="3" fill="#f59e0b" />
+                            <text x="42" y="87" text-anchor="middle" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="7" letter-spacing="2.5">STREET // 09</text>
+                        </g>
+                    `;
+                    break;
+
+                case 'shadowCore':
+                default:
+                    chestArtwork = `
+                        <g transform="translate(132, 86)">
+                            <!-- Minimalist Left-Chest Vortex Logo -->
+                            <rect x="0" y="0" width="38" height="38" rx="8" fill="#09090b" stroke="#52525b" stroke-width="1.4" />
+                            <path d="M10 11 L19 27 L28 11" fill="none" stroke="#ff2a54" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="19" cy="11" r="2.2" fill="#f59e0b" />
+                        </g>
+                    `;
+                    break;
+            }
+
+            return `
+                <svg viewBox="0 0 260 270" class="w-full h-56 sm:h-60 object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.65)] group-hover:scale-105 transition-transform duration-300" role="img" aria-label="${product.name}">
+                    <!-- T-Shirt Body -->
+                    <path
+                        d="M90 22 C108 38, 152 38, 170 22 L210 38 L248 94 L212 118 L194 92 L194 252 L66 252 L66 92 L48 118 L12 94 L50 38 Z"
+                        fill="${product.shirtFill}"
+                        stroke="#3f3f46"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                    />
+                    <!-- Ribbed Neckline -->
+                    <path
+                        d="M90 22 C108 46, 152 46, 170 22 C152 34, 108 34, 90 22 Z"
+                        fill="#09090b"
+                        stroke="#52525b"
+                        stroke-width="1.5"
+                    />
+                    <!-- Subtle Drape Lines -->
+                    <path d="M76 105 L73 240" stroke="#27272a" stroke-width="1.8" stroke-linecap="round" />
+                    <path d="M184 105 L187 240" stroke="#27272a" stroke-width="1.8" stroke-linecap="round" />
+                    <!-- Chest Graphic Artwork -->
+                    ${chestArtwork}
+                </svg>
+            `;
+        }
+
+        /**
+         * Renders the Product Grid based on activeCategory
+         */
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const filtered = activeCategory === 'All'
+                ? PRODUCTS
+                : PRODUCTS.filter((p) => p.category === activeCategory);
+
+            grid.innerHTML = filtered.map((product) => {
+                const currentSize = selectedSizes[product.id];
+                const sizePills = STORE_CONFIG.sizes.map((size) => {
+                    const isSelected = size === currentSize;
+                    return `
+                        <button
+                            type="button"
+                            onclick="selectSize('${product.id}', '${size}')"
+                            class="px-2.5 py-1.5 rounded-lg text-xs font-heading font-bold transition-all ${
+                                isSelected
+                                    ? 'bg-white text-obsidian shadow-sm'
+                                    : 'bg-obsidian text-zinc-400 border border-zinc-800 hover:border-zinc-600 hover:text-white'
+                            }"
+                        >
+                            ${size}
+                        </button>
+                    `;
+                }).join('');
+
+                return `
+                    <article class="group bg-zincCard border border-zinc-800/90 hover:border-crimson/50 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 shadow-lg">
+                        <!-- Top Image / SVG Stage -->
+                        <div>
+                            <div class="relative bg-gradient-to-b from-obsidian to-zinc-900/80 border border-zinc-800/80 rounded-2xl p-4 mb-5 overflow-hidden">
+                                <!-- Badge & Category -->
+                                <div class="flex items-center justify-between mb-2 relative z-10">
+                                    <span class="px-2.5 py-1 rounded-full border text-[10px] font-heading font-bold tracking-wider uppercase ${product.badgeStyle}">
+                                        ${product.badge}
+                                    </span>
+                                    <span class="text-[11px] font-heading text-zinc-400">${product.category}</span>
+                                </div>
+
+                                <!-- Inline SVG T-Shirt Mockup -->
+                                <div class="flex items-center justify-center py-1">
+                                    ${getTshirtSVG(product)}
+                                </div>
+                            </div>
+
+                            <!-- Product Meta -->
+                            <div class="flex items-start justify-between gap-2">
+                                <div>
+                                    <h3 class="font-heading font-bold text-lg text-white group-hover:text-crimson transition-colors">
+                                        ${product.name}
+                                    </h3>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="w-3 h-3 rounded-full border border-zinc-500 inline-block" style="background-color: ${product.colorHex};"></span>
+                                        <span class="text-xs text-zinc-400">${product.colorName} • 240 GSM</span>
+                                    </div>
+                                </div>
+                                <p class="font-heading font-bold text-lg text-amberAccent whitespace-nowrap">
+                                    ${formatLKR(product.price)}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Size Selector & Add to Cart -->
+                        <div class="mt-5 pt-4 border-t border-zinc-800/80 space-y-4">
+                            <div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs font-medium text-zinc-400">Select Size:</span>
+                                    <button type="button" onclick="openSizeGuide()" class="text-[11px] text-zinc-400 hover:text-amberAccent underline">
+                                        Size Guide
+                                    </button>
+                                </div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    ${sizePills}
+                                </div>
+                            </div>
+
+                            <button
+                                type="button"
+                                onclick="addToCart('${product.id}')"
+                                class="w-full py-3 px-4 rounded-xl bg-crimson hover:bg-rose-600 text-white font-heading font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-95 shadow-crimsonGlow"
+                            >
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                </svg>
+                                <span>Add to Cart (${currentSize})</span>
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        /**
+         * Updates the active category filter and re-renders products
+         */
+        function setCategory(category) {
+            activeCategory = category;
+
+            // Update active styling on filter buttons
+            document.querySelectorAll('.filter-btn').forEach((btn) => {
+                if (btn.dataset.category === category) {
+                    btn.className = 'filter-btn px-5 py-2.5 rounded-xl text-sm font-heading font-semibold transition-all bg-crimson text-white shadow-crimsonGlow';
+                } else {
+                    btn.className = 'filter-btn px-5 py-2.5 rounded-xl text-sm font-heading font-semibold transition-all bg-zincCard text-zinc-300 border border-zinc-800 hover:border-zinc-600';
+                }
+            });
+
+            renderProducts();
+        }
+
+        /**
+         * Selects a size pill for a specific product card
+         */
+        function selectSize(productId, size) {
+            selectedSizes[productId] = size;
+            renderProducts();
+        }
+
+        /**
+         * Adds the selected product & size to the cart
+         */
+        function addToCart(productId) {
+            const product = PRODUCTS.find((p) => p.id === productId);
+            if (!product) return;
+
+            const chosenSize = selectedSizes[productId] || 'L';
+            const existingIndex = cart.findIndex((item) => item.id === productId && item.size === chosenSize);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    size: chosenSize,
+                    colorName: product.colorName,
+                    qty: 1,
+                });
+            }
+
+            updateCartUI();
+            showToast(`Added ${product.name} (${chosenSize}) to cart!`);
+        }
+
+        /**
+         * Changes item quantity in cart (+1 or -1)
+         */
+        function updateItemQty(index, delta) {
+            if (!cart[index]) return;
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        /**
+         * Removes an item from cart completely
+         */
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        /**
+         * Re-renders cart drawer items, badges, delivery progress, and totals
+         */
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            const isFreeDelivery = subtotal >= STORE_CONFIG.freeDeliveryThreshold || subtotal === 0;
+            const deliveryFee = subtotal === 0 ? 0 : (isFreeDelivery ? 0 : STORE_CONFIG.deliveryFee);
+            const grandTotal = subtotal + deliveryFee;
+
+            // Update badges
+            document.getElementById('cart-badge').textContent = totalItems;
+            document.getElementById('drawer-cart-count').textContent = totalItems;
+
+            // Update Free Delivery Progress Bar
+            const progressPct = Math.min(100, (subtotal / STORE_CONFIG.freeDeliveryThreshold) * 100);
+            document.getElementById('free-delivery-bar').style.width = progressPct + '%';
+
+            const freeTextEl = document.getElementById('free-delivery-text');
+            if (subtotal === 0) {
+                freeTextEl.innerHTML = `Orders over <strong class="text-white">${formatLKR(STORE_CONFIG.freeDeliveryThreshold)}</strong> unlock FREE Islandwide Delivery!`;
+            } else if (isFreeDelivery) {
+                freeTextEl.innerHTML = `<span class="text-emerald-400 font-semibold">🎉 You unlocked FREE Islandwide Delivery!</span>`;
+            } else {
+                const remaining = STORE_CONFIG.freeDeliveryThreshold - subtotal;
+                freeTextEl.innerHTML = `Add <strong class="text-amberAccent">${formatLKR(remaining)}</strong> more for FREE Islandwide Delivery!`;
+            }
+
+            // Render cart items
+            const container = document.getElementById('cart-items-container');
+            const checkoutSection = document.getElementById('checkout-form-section');
+            const cartFooter = document.getElementById('cart-footer');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 px-4">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-zincCard border border-zinc-800 flex items-center justify-center text-zinc-500 mb-4">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                        </div>
+                        <p class="font-heading font-bold text-white text-base">Your cart is empty</p>
+                        <p class="text-xs text-zinc-400 mt-1 mb-5">Pick your favorite heavyweight graphic tees to get started.</p>
+                        <button
+                            type="button"
+                            onclick="closeCart()"
+                            class="px-5 py-2.5 rounded-xl bg-crimson hover:bg-rose-600 text-white text-xs font-heading font-bold"
+                        >
+                            Browse Collection
+                        </button>
+                    </div>
+                `;
+                checkoutSection.classList.add('hidden');
+                cartFooter.classList.add('hidden');
+                return;
+            }
+
+            checkoutSection.classList.remove('hidden');
+            cartFooter.classList.remove('hidden');
+
+            container.innerHTML = cart.map((item, idx) => `
+                <div class="flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-zincCard border border-zinc-800">
+                    <div class="min-w-0 flex-1">
+                        <h4 class="font-heading font-bold text-sm text-white truncate">${item.name}</h4>
+                        <p class="text-xs text-zinc-400 mt-0.5">
+                            Size: <span class="text-crimson font-semibold">${item.size}</span> • ${item.colorName}
+                        </p>
+                        <p class="text-xs font-heading font-bold text-amberAccent mt-1">
+                            ${formatLKR(item.price * item.qty)}
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2 shrink-0">
+                        <div class="flex items-center bg-obsidian border border-zinc-700 rounded-xl">
+                            <button
+                                type="button"
+                                onclick="updateItemQty(${idx}, -1)"
+                                aria-label="Decrease quantity"
+                                class="px-2.5 py-1.5 text-zinc-300 hover:text-white font-bold text-sm"
+                            >
+                                −
+                            </button>
+                            <span class="px-2 text-xs font-heading font-bold text-white">${item.qty}</span>
+                            <button
+                                type="button"
+                                onclick="updateItemQty(${idx}, 1)"
+                                aria-label="Increase quantity"
+                                class="px-2.5 py-1.5 text-zinc-300 hover:text-white font-bold text-sm"
+                            >
+                                +
+                            </button>
+                        </div>
+
+                        <button
+                            type="button"
+                            onclick="removeCartItem(${idx})"
+                            aria-label="Remove item"
+                            class="p-2 rounded-xl text-zinc-500 hover:text-crimson hover:bg-obsidian transition-colors"
+                        >
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            // Update Summary Numbers
+            document.getElementById('cart-subtotal').textContent = formatLKR(subtotal);
+            document.getElementById('cart-delivery').innerHTML = isFreeDelivery
+                ? '<span class="text-emerald-400 font-bold">FREE</span>'
+                : formatLKR(deliveryFee);
+            document.getElementById('cart-total').textContent = formatLKR(grandTotal);
+        }
+
+        /**
+         * Validates customer form, formats the complete WhatsApp order message,
+         * opens the WhatsApp link, and shows the Order Confirmation Preview Modal.
+         */
+        function submitWhatsAppOrder() {
+            const errorBox = document.getElementById('form-error');
+            errorBox.classList.add('hidden');
+
+            if (cart.length === 0) {
+                errorBox.textContent = 'Your cart is empty. Please add at least one T-shirt.';
+                errorBox.classList.remove('hidden');
+                return;
+            }
+
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+            const paymentInput = document.querySelector('input[name="payment-method"]:checked');
+            const paymentMethod = paymentInput ? paymentInput.value : 'Cash on Delivery (COD)';
+
+            if (!name || !phone || !address) {
+                errorBox.textContent = 'Please fill in your Full Name, Phone Number, and Delivery Address to place your order.';
+                errorBox.classList.remove('hidden');
+                errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+            const deliveryFee = subtotal >= STORE_CONFIG.freeDeliveryThreshold ? 0 : STORE_CONFIG.deliveryFee;
+            const total = subtotal + deliveryFee;
+
+            const itemLines = cart.map((item, idx) =>
+                `${idx + 1}. ${item.name} (Size: ${item.size}) x ${item.qty} — ${formatLKR(item.price * item.qty)}`
+            ).join('\n');
+
+            const message =
+`🔥 *NEW ORDER — ${STORE_CONFIG.brandName}* 🔥
+--------------------------------
+*Order Items:*
+${itemLines}
+
+*Subtotal:* ${formatLKR(subtotal)}
+*Delivery:* ${deliveryFee === 0 ? 'FREE' : formatLKR(deliveryFee)}
+*TOTAL:* ${formatLKR(total)}
+--------------------------------
+*Customer Details:*
+👤 Name: ${name}
+📞 Phone: ${phone}
+📍 Address: ${address}
+💳 Payment: ${paymentMethod}
+--------------------------------
+Please confirm my order. Thank you!`;
+
+            lastFormattedMessage = message;
+            const waUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+            // Populate & open Confirmation Preview Modal
+            document.getElementById('order-message-preview').textContent = message;
+            document.getElementById('whatsapp-direct-link').href = waUrl;
+            document.getElementById('order-preview-modal').classList.remove('hidden');
+            document.getElementById('order-preview-modal').classList.add('flex');
+
+            // Attempt to open WhatsApp in a new tab
+            try {
+                window.open(waUrl, '_blank', 'noopener,noreferrer');
+            } catch (e) {
+                // Fallback handled by the visible "Open WhatsApp Chat" button in the modal
+            }
+        }
+
+        /**
+         * Copies the formatted order text to clipboard using document.execCommand('copy')
+         */
+        function copyOrderMessage() {
+            if (!lastFormattedMessage) return;
+            const textarea = document.createElement('textarea');
+            textarea.value = lastFormattedMessage;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast('Order text copied to clipboard!');
+            } catch (err) {
+                showToast('Could not copy automatically. Please select text manually.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        /* =========================================================
+           MODAL, DRAWER & TOAST CONTROLS
+           ========================================================= */
+        function openCart() {
+            document.getElementById('cart-overlay').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeCart() {
+            document.getElementById('cart-overlay').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function openSizeGuide() {
+            const modal = document.getElementById('size-guide-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeSizeGuide() {
+            const modal = document.getElementById('size-guide-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function closeOrderPreview() {
+            const modal = document.getElementById('order-preview-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+            menu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 2600);
+        }
+
+        // Close modals on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeSizeGuide();
+                closeCart();
+                closeOrderPreview();
+            }
+        });
+
+        // Initial Render on Page Load
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('year').textContent = new Date().getFullYear();
+            renderProducts();
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
